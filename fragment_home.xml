@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.HomeFragment">
+
+    <com.infideap.drawerbehavior.AdvanceDrawerLayout
+        android:id="@+id/advance_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/user_pic"
+                    android:layout_width="@dimen/space100"
+                    android:layout_height="@dimen/space100"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="@dimen/space10"
+                    android:elevation="@dimen/space5"
+                    android:padding="@dimen/space10"
+                    android:src="@drawable/buss_user" />
+
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/earning_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/space30"
+                    android:background="@drawable/left_curve"
+                    android:drawableLeft="@drawable/ic_dollar_currency_symbol"
+                    android:drawablePadding="6dp"
+                    android:gravity="center"
+                    android:padding="@dimen/space10"
+                    android:text="0.00"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text18"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/earning_all"
+                    android:id="@+id/last_trip"
+                    android:layout_alignParentRight="true"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/space20"
+                    android:background="@drawable/left_curve"
+                    android:drawableLeft="@drawable/ic_sports_car"
+                    android:drawableTint="@color/quantum_orange"
+                    android:drawablePadding="6dp"
+                    android:gravity="center"
+                    android:padding="@dimen/space10"
+                    android:text="Your Last Trip"
+                    android:textColor="@color/quantum_orange300"
+                    android:textSize="@dimen/text16" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+
+                    android:orientation="horizontal">
+
+                    <com.github.clans.fab.FloatingActionMenu
+                        android:id="@+id/material_design_android_floating_action_menu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentBottom="true"
+                        fab:menu_animationDelayPerItem="55"
+                        fab:menu_colorNormal="@color/white"
+                        fab:menu_colorPressed="@color/quantum_bluegrey400"
+                        fab:menu_icon="@drawable/ic_list_symbol"
+                        fab:menu_labels_colorNormal="@color/white"
+                        fab:menu_labels_cornerRadius="3dp"
+                        fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
+                        fab:menu_labels_maxLines="-1"
+                        fab:menu_labels_padding="8dp"
+                        fab:menu_labels_position="right"
+                        fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
+                        fab:menu_labels_showShadow="true"
+                        fab:menu_labels_textColor="@color/black"
+                        fab:menu_labels_textSize="15sp"
+                        fab:menu_openDirection="up"
+                        fab:menu_shadowRadius="4dp"
+                        fab:menu_shadowXOffset="1dp"
+                        fab:menu_shadowYOffset="4dp"
+                        fab:menu_showShadow="true">
+
+
+                        <com.github.clans.fab.FloatingActionButton
+                            android:id="@+id/floating_action_menu_traffic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_traffic_light"
+                            app:fab_colorNormal="@color/lightgrey"
+                            app:fab_colorPressed="@color/grey"
+                            fab:fab_label="Traffic"
+                            fab:fab_size="mini" />
+
+                        <com.github.clans.fab.FloatingActionButton
+                            android:id="@+id/floating_action_menu_request_test"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_clock_menu"
+                            app:fab_colorNormal="@color/lightgrey"
+                            app:fab_colorPressed="@color/grey"
+                            fab:fab_label="Active Service"
+                            fab:fab_size="mini" />
+
+                        <com.github.clans.fab.FloatingActionButton
+                            android:id="@+id/floating_action_menu_tripSetting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_popup_settings"
+                            app:fab_colorNormal="@color/lightgrey"
+                            app:fab_colorPressed="@color/grey"
+                            fab:fab_label="Set your Destination"
+                            fab:fab_size="mini" />
+
+                        <com.github.clans.fab.FloatingActionButton
+                            android:id="@+id/floating_action_menu_driving_hour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_clock_menu"
+                            app:fab_colorNormal="@color/lightgrey"
+                            app:fab_colorPressed="@color/grey"
+                            fab:fab_label="Driver Hours"
+                            fab:fab_size="mini" />
+
+                    </com.github.clans.fab.FloatingActionMenu>
+
+                    <ImageView
+                        android:id="@+id/all_documents_vehicle"
+                        android:layout_width="@dimen/space55"
+                        android:layout_height="@dimen/space55"
+                        android:layout_above="@+id/safety_toolkit"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/space10"
+                        android:background="@drawable/black_solid_round_shape"
+                        android:elevation="@dimen/space10"
+                        android:padding="@dimen/space10"
+                        android:src="@drawable/ic_color_documents" />
+
+
+                    <ImageView
+                        android:id="@+id/safety_toolkit"
+                        android:layout_width="@dimen/space55"
+                        android:layout_height="@dimen/space55"
+                        android:layout_above="@+id/gift"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/space10"
+                        android:layout_marginVertical="@dimen/space20"
+                        android:background="@drawable/black_solid_round_shape"
+                        android:elevation="@dimen/space10"
+                        android:padding="@dimen/space10"
+                        android:src="@drawable/ic_insurance" />
+
+                    <Button
+                        android:id="@+id/btn_start"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/space80"
+                        android:layout_marginRight="@dimen/space10"
+                        android:layout_marginBottom="@dimen/space22"
+                        android:layout_toLeftOf="@id/gift"
+                        android:background="@drawable/green_button_back"
+                        android:fontFamily="@font/roboto"
+                        android:padding="@dimen/text16"
+                        android:text="@string/drive"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+
+                    <Button
+                        android:id="@+id/btn_online"
+                        android:layout_width="@dimen/space80"
+                        android:layout_height="@dimen/space80"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/space22"
+                        android:background="@drawable/green_circle"
+                        android:fontFamily="@font/roboto"
+                        android:padding="@dimen/text10"
+                        android:text="Online"
+                        android:textSize="@dimen/text14"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/gift"
+                        android:layout_width="@dimen/space55"
+                        android:layout_height="@dimen/space55"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="@dimen/space22"
+                        android:background="@drawable/black_solid_round_shape"
+                        android:elevation="@dimen/space10"
+                        android:layout_marginRight="@dimen/space10"
+                        android:padding="@dimen/space12"
+                        android:src="@drawable/ic_giftbox" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <include layout="@layout/drawer_layout" />
+    </com.infideap.drawerbehavior.AdvanceDrawerLayout>
+
+
+    <LinearLayout
+        android:id="@+id/bottomsheet1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="@dimen/space5"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="@dimen/space0"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/space10"
+            android:text="Click to Accept Ride"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text20"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/sand_timmer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space150"
+                android:layout_marginLeft="@dimen/space20"
+                android:src="@drawable/car_gif1" />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_marginHorizontal="@dimen/space20">
+
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/btn_accept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space10"
+                android:layout_marginHorizontal="@dimen/space10"
+                android:background="@drawable/button_cicle"
+                android:fontFamily="@font/roboto"
+                android:text="Accept"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+            <Button
+                android:layout_marginBottom="@dimen/space10"
+                android:layout_weight="1"
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/red"
+                android:background="@drawable/button_cicle"
+                android:fontFamily="@font/roboto"
+                android:text="Reject"
+                android:layout_marginHorizontal="@dimen/space10"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+    </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomsheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/up_curve"
+        android:elevation="@dimen/space5"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="@dimen/space0"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <ImageView
+            android:layout_width="@dimen/space60"
+            android:layout_height="@dimen/space60"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space30"
+            android:src="@drawable/ic_insurance" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/space10"
+            android:gravity="center_horizontal"
+            android:text="@string/safety_toolkit"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text18"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/space15"
+            android:layout_marginVertical="@dimen/space10"
+            android:gravity="center_horizontal"
+            android:text="@string/safety_toolkit_description"
+            android:textSize="@dimen/text14" />
+
+        <Button
+            android:id="@+id/btn_continue_safety"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="80dp"
+            android:layout_marginBottom="@dimen/space20"
+            android:background="@drawable/button_cicle_blue"
+            android:fontFamily="@font/roboto"
+            android:padding="@dimen/text16"
+            android:text="@string/continues"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomsheet_safety"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/up_curve_white"
+        android:elevation="@dimen/space5"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="@dimen/space0"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/space10"
+            android:layout_marginLeft="@dimen/space20"
+            android:gravity="center_horizontal"
+            android:text="@string/safety_toolkit"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text18"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space10"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/space55"
+                    android:layout_height="@dimen/space55"
+                    android:layout_marginBottom="@dimen/space20"
+                    android:background="@drawable/black_solid_round_shape"
+                    android:elevation="@dimen/space10"
+                    android:padding="@dimen/space15"
+                    android:src="@drawable/ic_share" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="@string/share_trip"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text16"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/space55"
+                    android:layout_height="@dimen/space55"
+                    android:layout_marginBottom="@dimen/space20"
+                    android:background="@drawable/black_solid_round_shape"
+                    android:elevation="@dimen/space10"
+                    android:padding="@dimen/space10"
+                    android:src="@drawable/ic_warning" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="@string/call"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text16"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space2"
+            android:layout_marginHorizontal="@dimen/space10"
+            android:layout_marginVertical="@dimen/space10"
+            android:background="@color/lightgrey" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.4"
+                android:padding="@dimen/space10"
+                android:src="@drawable/ic_user" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.6"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/trusted_contacts"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text16"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/space10"
+                    android:text="@string/select_contact"
+                    android:textSize="@dimen/text14" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_trip_check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.4"
+                android:padding="@dimen/space10"
+                android:src="@drawable/ic_wifi" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.6"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/trip_check"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text16"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/space10"
+                    android:text="@string/trip_check_description"
+                    android:textSize="@dimen/text14" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

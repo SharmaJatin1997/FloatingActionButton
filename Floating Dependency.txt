@@ -1,0 +1,5 @@
+  //manjinderSir
+    implementation 'com.github.manjhi:util_repo:0.1.2'
+
+//Floating Menu
+    implementation 'com.github.clans:fab:1.6.2'
